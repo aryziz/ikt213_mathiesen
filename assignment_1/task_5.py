@@ -1,37 +1,54 @@
 import cv2 as cv
 import os
 
-def write_camera_info() -> None:
+def write_to_file(file_path: str, content: str) -> None:
+    """Helper function to write content to a file.
+    
+    Args:
+        file_path (str): Path to the file where content will be written.
+        content (str): Content to write to the file.
+    """
+    with open(file_path, "w") as file:
+        file.write(content)
+        
+    print("Camera information saved to", file_path)
+
+def get_camera_info() -> cv.VideoCapture:
     """Function to retrieve camera properties and write them to a file.
     """
+    print("Retrieving camera information...")
     cap = cv.VideoCapture(0)
+    print("Camera opened:", cap.isOpened())
     
     if not cap.isOpened():
         print("Error: Could not open camera.")
         return None
     
-    try:
-        fps = cap.get(cv.CAP_PROP_FPS)
-        height = int(cap.get(cv.CAP_PROP_FRAME_HEIGHT))
-        width = int(cap.get(cv.CAP_PROP_FRAME_WIDTH))
-        
-        output_file = os.path.join(os.getcwd(),"solutions", "camera_outputs.txt")
-        with open(output_file, "w") as file:
-            file.write(f"FPS: {fps}\n")
-            file.write(f"Height: {height}\n")
-            file.write(f"Width: {width}\n")
-        
-    except Exception as e:
-        print(f"Error retrieving camera properties: {e}")
-        return None
+    return cap
+
+def save_camera_properties(cap: cv.VideoCapture, file_path: str) -> None:
+    """Function to save camera properties to a file.
     
-    finally:
-        cap.release()
+    Args:
+        cap (cv.VideoCapture): The VideoCapture object for the camera.
+        file_path (str): Path to the file where camera properties will be saved.
+    """
+    properties = {
+        "FPS": cap.get(cv.CAP_PROP_FPS),
+        "Height": cap.get(cv.CAP_PROP_FRAME_HEIGHT),
+        "Width": cap.get(cv.CAP_PROP_FRAME_WIDTH),
+    }
+    
+    content = "\n".join(f"{key}: {value}" for key, value in properties.items())
+    write_to_file(file_path, content)
+
 
 def main():
-    print("Retrieving camera information...")
-    write_camera_info()
-    print("Camera information saved to solutions/camera_info.txt")
+    cap_info = get_camera_info()
+    if cap_info:
+        save_camera_properties(cap_info, os.path.join("solutions/", "camera_outputs.txt"))
+        cap_info.release()
+    
 
 if __name__ == "__main__":
     main()
