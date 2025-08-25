@@ -1,8 +1,11 @@
 # Assignment Name
 
 **Course:** IKT213
+
 **Student:** Aryan Mathiesen  
+
 **Date:** 25.08.2025
+
 **Assignment:** Assignment 1
 
 ## Description
