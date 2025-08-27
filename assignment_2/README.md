@@ -15,17 +15,19 @@ This assignment is an answer to assignment 1 - Introduction to OpenCV (Open Sour
 ## File Structure
 
 ```
-assignment_1/
+assignment_2/
 ├── README.md
-├── main.py
-├── utils.py
-├── solutions/
-│   ├── camera_outputs.txt        # Output from task 5
-├── img/
-│   ├── img-info.png               # Proof of image size task 5
-│   └── lena-1.png                 # Image for task 4
-└── output/
-    └── ...                        # Outputs from task 4/5
+├── src/
+│   ├── __init__.py
+│   ├── main.py         # Entry file
+│   ├── utils.py        # Image utilities
+├── images/
+│   ├── input/
+│   │   ├── lena-1.png       # Input image
+│   ├── output/
+│   │   ├── lena_copied.png
+│   │   ├── lena_cropped.png
+│   │   ├── ...              # Rest of output images
 ```
 
 **Note:** This assignment was completed individually and follows the course's academic integrity policy.
