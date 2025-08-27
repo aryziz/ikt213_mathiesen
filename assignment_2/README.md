@@ -4,13 +4,13 @@
 
 **Student:** Aryan Mathiesen  
 
-**Date:** 25.08.2025
+**Date:** 08.09.2025
 
-**Assignment:** Assignment 1
+**Assignment:** Assignment 2
 
 ## Description
 
-This assignment is an answer to assignment 1 - Introduction to OpenCV (Open Source Computer Vision Library).
+This assignment is an answer to assignment 2 - Basic imaging operations and applying linear filters with OpenCV
 
 ## File Structure
 
