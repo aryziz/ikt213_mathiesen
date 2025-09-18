@@ -1,4 +1,3 @@
-import os.path
 import cv2 as cv
 from utils import *
 
