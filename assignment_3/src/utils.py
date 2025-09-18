@@ -92,12 +92,14 @@ def resize(image: np.ndarray, up_or_down: Literal["Up", "Down"], scale_factor: i
     Returns:
         np.ndarray: Resized image.
     """
+    rows, cols, _channels = map(int, image.shape)
+    
     if up_or_down == "Up":
-        for _ in range(scale_factor):
-            image = cv.pyrUp(image)
+        image = cv.pyrUp(image, dstsize=(cols*scale_factor, rows*scale_factor))
+        print(f"** Zoom in: Image * {scale_factor}")
     elif up_or_down == "Down":
-        for _ in range(scale_factor):
-            image = cv.pyrDown(image)
+        image = cv.pyrDown(image, dstsize=(cols//scale_factor, rows//scale_factor))
+        print(f"** Zoom out: Image / {scale_factor}")
     else:
         raise ValueError("up_or_down must be either 'Up' or 'Down'")
     
