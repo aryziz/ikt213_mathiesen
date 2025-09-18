@@ -15,7 +15,7 @@ This assignment is an answer to assignment 3 - Edge detection, Image resampling,
 ## File Structure
 
 ```
-assignment_2/
+assignment_3/
 ├── README.md
 ├── src/
 │   ├── __init__.py
