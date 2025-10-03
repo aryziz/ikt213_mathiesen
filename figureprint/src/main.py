@@ -1,14 +1,17 @@
 from utils import *
+from typing import Optional
 
-def compare_images(dataset, results_dir, imgA=None, imgB=None):
-    """Compare two images using ORB and SIFT feature matching.
+def compare_images(dataset: str, results_dir: str, imgA: Optional[str]=None, imgB: Optional[str]=None):
+    """First perform data check on dataset, then optionally compare a custom pair of images.
 
     Args:
-        imgA: First input image (numpy array).
-        imgB: Second input image (numpy array).
+        dataset (str): Dataset directory path.
+        results_dir (str): Directory to save results.
+        imgA (str, optional): Path to first custom image. Defaults to None.
+        imgB (str, optional): Path to second custom image. Defaults to None.
     """
-    ORB_THRESH  = 12   # count of good ORB matches
-    SIFT_THRESH = 12   # count of RANSAC inliers
+    ORB_THRESH  = 12
+    SIFT_THRESH = 12
     process_datacheck(dataset, results_dir, orb_thresh=ORB_THRESH, sift_thresh=SIFT_THRESH)
     
     if imgA and imgB:
