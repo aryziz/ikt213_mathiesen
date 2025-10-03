@@ -126,7 +126,7 @@ def eval_pair(img1_path: str, img2_path: str, outdir: str, pair_name: str,
         sift_thresh (int, optional): Threshold seed for SIFT. Defaults to 12.
 
     Returns:
-        _type_: _description_
+        Dict[str, Dict]: Dictionary containing scores, predictions, times, and keypoint counts for both ORB and SIFT.
     """
     os.makedirs(outdir, exist_ok=True)
     g1 = read_gray(img1_path)
@@ -166,7 +166,7 @@ def process_datacheck(dataset_dir: str, outdir_base: str,
         RuntimeError: _no valid pairs processed. Check dataset_dir and folder structure._
 
     Returns:
-        _type_: _None_
+        _None_ 
     """
     os.makedirs(outdir_base, exist_ok=True)
     y_true, y_orb, y_sift = [], [], []
