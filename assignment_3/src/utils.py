@@ -38,7 +38,7 @@ def sobel_edge_detection(image: np.ndarray) -> np.ndarray:
     image = denoise_image(image)
 
     sobel_xy = cv.Sobel(src=image, ddepth=cv.CV_64F, dx=1, dy=1, ksize=1)
-    save_image(sobel_xy, os.path.join("data", "output", "task_1_sobel.png"))
+    save_image(sobel_xy, os.path.join("solutions", "task_1_sobel.png"))
     return sobel_xy
 
 def canny_edge_detection(image: np.ndarray, threshold_1=50, threshold_2=50) -> np.ndarray:
@@ -53,7 +53,7 @@ def canny_edge_detection(image: np.ndarray, threshold_1=50, threshold_2=50) -> n
     image = denoise_image(image)
 
     canny_edges = cv.Canny(image, threshold_1, threshold_2)
-    save_image(canny_edges, os.path.join("data", "output", "task_2_canny.png"))
+    save_image(canny_edges, os.path.join("solutions", "task_2_canny.png"))
     return canny_edges
 
 
@@ -78,7 +78,7 @@ def template_match(image: np.ndarray, template: np.ndarray) -> np.ndarray:
     for pt in zip(*locations[::-1]):
         cv.rectangle(image, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 2)
 
-    save_image(image, os.path.join("data", "output", "task_3_template_matching.png"))
+    save_image(image, os.path.join("solutions", "task_3_template_matching.png"))
     return image
 
 def resize(image: np.ndarray, up_or_down: Literal["Up", "Down"], scale_factor: int = 2) -> np.ndarray:
@@ -103,6 +103,6 @@ def resize(image: np.ndarray, up_or_down: Literal["Up", "Down"], scale_factor: i
     else:
         raise ValueError("up_or_down must be either 'Up' or 'Down'")
     
-    save_image(image, os.path.join("data", "output", f"task_4_resize_{up_or_down.lower()}_{str(scale_factor)}.png"))
+    save_image(image, os.path.join("solutions", f"task_4_resize_{up_or_down.lower()}_{str(scale_factor)}.png"))
 
     return image
