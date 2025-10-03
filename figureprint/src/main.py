@@ -23,7 +23,7 @@ def compare_images(dataset: str, results_dir: str, imgA: Optional[str]=None, img
 
 if __name__ == "__main__":
     DATASET_PATH_UIA = r"data/input/uia"
-    RESULTS_DIR_UIA  = r"data/output/uia"
+    RESULTS_DIR_UIA  = r"solutions/uia"
 
     UIA_IMG1 = r"data/input/uia/same/uia-front-close.jpg"
     UIA_IMG2 = r"data/input/uia/same/uia-front-far.png"
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     compare_images(DATASET_PATH_UIA, RESULTS_DIR_UIA, UIA_IMG1, UIA_IMG2)
     
     DATASET_PATH_FP = r"data/input/fingerprint"
-    RESULTS_DIR_FP  = r"data/output/fingerprint"
+    RESULTS_DIR_FP  = r"solutions/fingerprint"
     FP_IMG1 = r"data/input/fingerprint/same_1/101_6.tif"
     FP_IMG2 = r"data/input/fingerprint/same_1/101_7.tif"
     

@@ -23,7 +23,7 @@ figureprint/
 │   ├── utils.py        # Image utilities
 ├── data/
 │   ├── input/
-│   │   ├── fingerprint
+│   │   ├── fingerprint/
 │   │   │   ├── same_1/                     # Dir containing original images
 │   │   │   │   ├── 101_6.tif               # Sample same fingerprint image 1
 │   │   │   │   ├── 101_7.tif               # Sample same fingerprint image 2
@@ -32,17 +32,20 @@ figureprint/
 │   │   │   │   ├── 101_6.tif               # Sample different fingerprint image 1
 │   │   │   │   ├── 105_6.tif               # Sample different fingerprint image 2
 │   │   │   ├── ...
-│   │   ├── uia                             # 
-│   ├── output/                             # Output dir follows same pattern as input dir
-│   │   ├── fingerprint
-│   │   │   ├── same_1/                     # Dir containing processed images
+│   │   ├── uia/                             # Same pattern as fingerprint dir
+├── solutions/
+│   ├── fingerprint/
+│   │   ├── same_1/                         # Dir containing processed images
 │   │   │   │   ├── same_1_ORB.png
 │   │   │   │   ├── same_1_SIFT.png
 │   │   │   ├── ...                         # Same pattern as above; same_2, same_3, ...
 │   │   │   ├── different_1/
 │   │   │   │   ├── different_1_ORB.png     # Matching on diff img using ORB
 │   │   │   │   ├── different_1_SIFT.png    # Matching on diff img using SIFT
-│   │   │   ├── ...
+│   ├── uia/
+│   │   ├── same/
+│   │   │   ├── same_ORB.png                # Same pattern as above
+
 
 ```
 
