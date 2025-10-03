@@ -81,11 +81,11 @@ def match_sift_flann_ransac(img1_gray: np.ndarray, img2_gray: np.ndarray, ratio=
             - inlier_matches (List): list of inlier matches.
             - vis (np.ndarray): visualization image with inlier matches drawn.
     """
-    g1 = preprocess_otsu_binary(img1_gray)
-    g2 = preprocess_otsu_binary(img2_gray)
+    # g1 = preprocess_otsu_binary(img1_gray)
+    # g2 = preprocess_otsu_binary(img2_gray)
     # Better alternative:
-    # g1 = preprocess_enhanced_gray(img1_gray)
-    # g2 = preprocess_enhanced_gray(img2_gray)
+    g1 = preprocess_enhanced_gray(img1_gray)
+    g2 = preprocess_enhanced_gray(img2_gray)
 
     sift = cv.SIFT_create(nfeatures=2000)
     kp1, des1 = sift.detectAndCompute(g1, None)
@@ -207,7 +207,7 @@ def process_datacheck(dataset_dir: str, outdir_base: str,
         k_sift.append(sum(res["sift"]["kpts"]))
         processed += 1
 
-        print(f"{folder:25s} | GT={gt} | "
+        print(f"{folder:25s} | Same={gt} | "
               f"ORB: score={res['orb']['score']:3d} pred={res['orb']['pred']} time={res['orb']['time_s']*1000:.1f}ms | "
               f"SIFT: score={res['sift']['score']:3d} pred={res['sift']['pred']} time={res['sift']['time_s']*1000:.1f}ms")
 

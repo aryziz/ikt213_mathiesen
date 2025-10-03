@@ -28,7 +28,7 @@ if __name__ == "__main__":
     UIA_IMG1 = r"data/input/uia/same/uia-front-close.jpg"
     UIA_IMG2 = r"data/input/uia/same/uia-front-far.png"
 
-    compare_images(DATASET_PATH_UIA, RESULTS_DIR_UIA, UIA_IMG1, UIA_IMG2)
+    compare_images(DATASET_PATH_UIA, RESULTS_DIR_UIA)
     
     DATASET_PATH_FP = r"data/input/fingerprint"
     RESULTS_DIR_FP  = r"solutions/fingerprint"
