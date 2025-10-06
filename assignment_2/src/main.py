@@ -10,8 +10,8 @@ def main():
         return
     
     save_image(padding(img_arr, border_width=100), "solutions/lena_padded.png")
-    save_image(crop(img_arr, 200, 500, 200, 500), "solutions/lena_cropped.png")
-    save_image(resize(img_arr, 100, 200), "solutions/lena_resized.png")
+    save_image(crop(img_arr, 80, 130, 80, 130), "solutions/lena_cropped.png")
+    save_image(resize(img_arr, 200, 200), "solutions/lena_resized.png")
     save_image(copy(img_arr, np.array([]),), "solutions/lena_copied.png")
     save_image(grayscale(img_arr), "solutions/lena_grayscaled.png")
     save_image(hsv(img_arr), "solutions/lena_hsv.png")

@@ -127,8 +127,8 @@ def hsv(image: np.ndarray) -> np.ndarray:
         raise ValueError("Input image must have 3 dimensions")
     
     
-def hue_shifted(image: np.ndarray, emptyPictureArray: np.ndarray, hue: int) -> np.ndarray:
-    """Shifts the hue of the input image by the specified amount.
+def hue_shifted(image: np.ndarray, emptyPictureArray: np.ndarray, hue: int = 50) -> np.ndarray:
+    """Shift image color values in RGB by the specified hue amount.
 
     Args:
         image (np.ndarray): The input image.
@@ -138,15 +138,15 @@ def hue_shifted(image: np.ndarray, emptyPictureArray: np.ndarray, hue: int) -> n
         np.ndarray: The hue-shifted image.
     """
     
-    if not np.array_equal(emptyPictureArray, np.array([])):
-        emptyPictureArray[:] = image
-        
-    hsv_image = hsv(emptyPictureArray)
-    h, s, v = cv.split(hsv_image)
-    h = (h.astype(int) + hue) % 180  # OpenCV uses 0-179 for hue
-    h = h.astype(np.uint8)
-    shifted_hsv = cv.merge([h, s, v])
-    return cv.cvtColor(shifted_hsv, cv.COLOR_HSV2BGR)
+    if emptyPictureArray is None or emptyPictureArray.size == 0 or emptyPictureArray.shape != image.shape:
+        work = image.copy()
+    else:
+        np.copyto(emptyPictureArray, image)
+        work = emptyPictureArray
+    
+    shifted = (work.astype(np.int16) + int(hue)) % 256
+    shifted = shifted.astype(np.uint8)
+    return shifted
 
 def smoothing(image: np.ndarray, ksize=(15, 15)) -> np.ndarray:
     """Applies Gaussian smoothing to the input image.
