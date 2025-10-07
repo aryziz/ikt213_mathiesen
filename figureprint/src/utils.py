@@ -207,8 +207,8 @@ def process_datacheck(dataset_dir: str, outdir_base: str,
         k_sift.append(sum(res["sift"]["kpts"]))
         processed += 1
 
-        print(f"{folder:25s} | Same={gt} | "
-              f"ORB: score={res['orb']['score']:3d} pred={res['orb']['pred']} time={res['orb']['time_s']*1000:.1f}ms | "
+        print(f"{folder:25s} / Same: {gt} / "
+              f"ORB: score={res['orb']['score']:3d} pred={res['orb']['pred']} time={res['orb']['time_s']*1000:.1f}ms / "
               f"SIFT: score={res['sift']['score']:3d} pred={res['sift']['pred']} time={res['sift']['time_s']*1000:.1f}ms")
 
     if processed == 0:
