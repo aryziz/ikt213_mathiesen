@@ -1,35 +1,32 @@
-# Assignment 3
+# Assignment 4
 
 **Course:** IKT213
 
 **Student:** Aryan Mathiesen  
 
-**Date:** 18.09.2025
+**Date:** 15.10.2025
 
-**Assignment:** Assignment 3
+**Assignment:** Assignment 4
 
 ## Description
 
-This assignment is an answer to assignment 3 - Edge detection, Image resampling, and Template matching
+This assignment is an answer to assignment 4 - Local features matching and Harris corner detection
 
 ## File Structure
 
 ```
-assignment_3/
+assignment_4/
 ├── README.md
 ├── src/
 │   ├── __init__.py
-│   ├── main.py         # Entry file
-│   ├── utils.py        # Image utilities
-├── data/
-│   ├── input/
-│   │   ├── lambo.png       # Input image
-│   │   ├── shapes.png
-│   │   ├── shapes_template.png
-│   ├── output/
-│   │   ├── task_1_sobel.png # Processed images
-│   │   ├── task_2_canny.png
-│   │   ├── ...              # Rest of output images
+│   ├── main.py                 # Entry file
+│   ├── utils.py                # Image utilities
+├── data/                       # Image data
+│   ├── reference_img.png       # Ref img & align img
+├── solutions/                  # Output images
+│   ├── aligned.png    # Processed images
+│   ├── matches.png
+│   ├── ...                 # Rest of output images
 ```
 
 **Note:** This assignment was completed individually and follows the course's academic integrity policy.
