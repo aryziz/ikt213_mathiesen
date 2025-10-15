@@ -48,8 +48,18 @@ def _clahe(gray):
     clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
     return clahe.apply(gray)
 
+def _save_matches(path, img1, kp1, img2, kp2, matches):
+    vis = cv.drawMatches(
+        img1, kp1,
+        img2, kp2,
+        matches, None,
+        flags=cv.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS
+    )
+    cv.imwrite(path, vis)
+    return vis
 
-def align_images(image_to_align, reference_image, max_features, good_match_percent):
+
+def align_images(image_to_align, reference_image, max_features=10, good_match_percent=0.7):
     """
     Aligns image_to_align to reference_image using feature matching.
 
@@ -102,6 +112,8 @@ def align_images(image_to_align, reference_image, max_features, good_match_perce
 
     good.sort(key=lambda m: m.distance)
     good = good[:max(8, min(50, len(good)))]
+    
+    _save_matches("solutions/matches.png", im1, kp1, im2, kp2, good)
 
     pts1 = np.float32([kp1[m.queryIdx].pt for m in good])
     pts2 = np.float32([kp2[m.trainIdx].pt for m in good])
